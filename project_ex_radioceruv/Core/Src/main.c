@@ -94,7 +94,12 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART2_UART_Init();
+
+
   /* USER CODE BEGIN 2 */
+
+
+  // Testing new module with struct
 
   /* USER CODE END 2 */
 
@@ -105,7 +110,22 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
-	  blinkTest();
+	  LedStatus all = {1, 1, 1};
+	  ledUpdate(&all);
+	  HAL_Delay(2000);
+
+
+	  all = (LedStatus){1, 0, 0};
+	  ledUpdate(&all);
+	  HAL_Delay(2000);
+
+	  all = (LedStatus){0, 1, 0};
+	  ledUpdate(&all);
+	  HAL_Delay(2000);
+
+	  all = (LedStatus){0, 0, 1};
+	  ledUpdate(&all);
+	  HAL_Delay(2000);
 
 
     /* USER CODE BEGIN 3 */

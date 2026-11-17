@@ -1,1 +1,2 @@
 ../Core/Src/test_liba.c:4:6:blinkTest	1
+../Core/Src/test_liba.c:26:6:ledUpdate	1

@@ -4,9 +4,7 @@
 
 #include "main.h"
 #include <stdint.h>
-
-
-
+#include <stdbool.h>
 
 
 #pragma pack(push, 1)

@@ -3,9 +3,13 @@
 
 #include "main.h"
 
+#include "struct.h"
+
 
 
 void blinkTest();
+
+void ledUpdate(LedStatus *leds);
 
 
 
