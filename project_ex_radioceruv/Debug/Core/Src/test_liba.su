@@ -2,3 +2,4 @@
 ../Core/Src/test_liba.c:26:6:ledUpdate	16	static
 ../Core/Src/test_liba.c:37:6:initPWM	8	static
 ../Core/Src/test_liba.c:46:6:ledPWMUpdate	16	static
+../Core/Src/test_liba.c:57:15:changeColor	48	static

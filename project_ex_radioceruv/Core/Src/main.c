@@ -109,9 +109,9 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
 
- // initPWM();
+  initPWM();
 
-  //LedPWMStatus all = {255, 255, 255};
+  LedPWMStatus all = {0, 0, 0};
  // LedPWMStatus ser = {0, 125, 255};
   //LedPWMStatus red_ser = {20, 255, 0};
 
@@ -129,7 +129,15 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
-	  listenEcho(rxBuffer, RX_SIZE_BUFFER);
+	  if(changeColor(rxBuffer, RX_SIZE_BUFFER, &all) != CHANGE_OK)
+	  {
+		  uartPrintln("Error to change color");
+	  }
+	  else
+	  {
+		  ledPWMUpdate(&all);
+	  }
+
 
     /* USER CODE BEGIN 3 */
   }
