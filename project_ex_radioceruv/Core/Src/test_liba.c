@@ -32,3 +32,24 @@ void ledUpdate(LedStatus *leds)
 
 }
 
+
+
+void initPWM()
+{
+	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+	HAL_TIM_PWM_Start(&htim16, TIM_CHANNEL_1);
+	HAL_TIM_PWM_Start(&htim17, TIM_CHANNEL_1);
+}
+
+
+
+void ledPWMUpdate(LedPWMStatus *leds)
+{
+
+	__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, leds->redLight);
+	__HAL_TIM_SET_COMPARE(&htim16, TIM_CHANNEL_1, leds->yellowLight);
+	__HAL_TIM_SET_COMPARE(&htim17, TIM_CHANNEL_1, leds->greenLight);
+
+}
+
+
