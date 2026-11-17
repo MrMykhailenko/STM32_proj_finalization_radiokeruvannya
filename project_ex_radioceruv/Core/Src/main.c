@@ -24,6 +24,7 @@
 
 #include "test_liba.h"
 #include "struct.h"
+#include "uart_lib.h"
 
 /* USER CODE END Includes */
 
@@ -105,12 +106,16 @@ int main(void)
 
   /* USER CODE BEGIN 2 */
 
+
   initPWM();
 
   LedPWMStatus all = {255, 255, 255};
   LedPWMStatus ser = {0, 125, 255};
   LedPWMStatus red_ser = {20, 255, 0};
 
+
+  uartPrintln("Hello, world");
+  HAL_Delay(STANDART_DEL);
 
   /* USER CODE END 2 */
 
@@ -121,15 +126,16 @@ int main(void)
     /* USER CODE END WHILE */
 
 	  ledPWMUpdate(&all);
+	  uartSendPacketLigh(&all);
 	  HAL_Delay(STANDART_DEL);
 
 	  ledPWMUpdate(&ser);
+	  uartSendPacketLigh(&ser);
 	  HAL_Delay(STANDART_DEL);
 
 	  ledPWMUpdate(&red_ser);
+	  uartSendPacketLigh(&red_ser);
 	  HAL_Delay(STANDART_DEL);
-
-
 
     /* USER CODE BEGIN 3 */
   }
