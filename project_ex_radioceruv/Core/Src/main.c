@@ -22,11 +22,10 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
-#include <stdio.h>
-
 #include "test_liba.h"
 #include "struct.h"
 #include "uart_lib.h"
+#include "adc_lib.h"
 
 #define RX_SIZE_BUFFER 32
 
@@ -119,6 +118,8 @@ int main(void)
 
   initPWM();
 
+  initADC();
+
   LedPWMStatus all = {0, 0, 0};
  // LedPWMStatus ser = {0, 125, 255};
   //LedPWMStatus red_ser = {20, 255, 0};
@@ -131,15 +132,15 @@ int main(void)
 
 
   // 1. Буфер під 2 канали DMA (глобальний або static)
-  volatile uint16_t adc_buf[2] = {0};
+  //volatile uint16_t adc_buf[2] = {0};
 
   // 2. Калібрування АЦП (викликати один раз перед стартом)
-  HAL_ADCEx_Calibration_Start(&hadc1, ADC_SINGLE_ENDED);
+  //HAL_ADCEx_Calibration_Start(&hadc1, ADC_SINGLE_ENDED);
 
   // 3. Запуск безперервного зчитування в циклічний DMA-буфер (викликати один раз)
-  HAL_ADC_Start_DMA(&hadc1, (uint32_t *)adc_buf, 2);
+  //HAL_ADC_Start_DMA(&hadc1, (uint32_t *)adc_buf, 2);
 
-  char msg[32];
+
 
   /* USER CODE END 2 */
 
@@ -149,13 +150,7 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
-	  uint16_t ch1 = adc_buf[0]; // PA0 (ADC1_IN1)
-	  uint16_t ch2 = adc_buf[1]; // PA1 (ADC1_IN2)
-
-	  snprintf(msg, sizeof(msg), "VRx = %u, VRy = %u\r\n", adc_buf[0], adc_buf[1]);
-
-	  uartPrintln(msg);
-
+	  printSides();
 	  HAL_Delay(1500);
 
     /* USER CODE BEGIN 3 */

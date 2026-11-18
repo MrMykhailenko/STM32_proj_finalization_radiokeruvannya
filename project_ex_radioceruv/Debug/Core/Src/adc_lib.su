@@ -1,0 +1,4 @@
+../Core/Src/adc_lib.c:7:6:initADC	8	static
+../Core/Src/adc_lib.c:17:6:stopADC	8	static
+../Core/Src/adc_lib.c:25:6:printJoystick	16	static
+../Core/Src/adc_lib.c:35:6:printSides	8	static
