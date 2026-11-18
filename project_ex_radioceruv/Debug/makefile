@@ -60,8 +60,8 @@ all: main-build
 main-build: project_ex_radioceruv.elf secondary-outputs
 
 # Tool invocations
-project_ex_radioceruv.elf project_ex_radioceruv.map: $(OBJS) $(USER_OBJS) /Users/maksim/Mope_2007/RC_STM32_Zag_info/project_ex_radioceruv/STM32G491RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "project_ex_radioceruv.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/maksim/Mope_2007/RC_STM32_Zag_info/project_ex_radioceruv/STM32G491RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="project_ex_radioceruv.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+project_ex_radioceruv.elf project_ex_radioceruv.map: $(OBJS) $(USER_OBJS) /Users/maksim/Mope_2007/STM32_proj_finalization_radiokeruvannya/project_ex_radioceruv/STM32G491RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "project_ex_radioceruv.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/maksim/Mope_2007/STM32_proj_finalization_radiokeruvannya/project_ex_radioceruv/STM32G491RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="project_ex_radioceruv.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
